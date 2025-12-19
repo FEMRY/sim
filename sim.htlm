@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sim</title>
+<style>
+body{margin:0;background:#111;color:white;text-align:center}
+canvas{background:#222;margin-top:20px}
+</style>
+</head>
+<body>
+
+<h3>Simulación simple</h3>
+<canvas id="c" width="600" height="200"></canvas>
+
+<script>
+const c=document.getElementById("c");
+const x=c.getContext("2d");
+
+let v=500, m=0.01, r=2000, p=50, dt=0.02;
+
+function loop(){
+  x.clearRect(0,0,600,200);
+  if(v>0){
+    v+=(-r/m)*dt;
+    p+=v*dt;
+  }
+  x.fillStyle="cyan";
+  x.beginPath();x.arc(p,100,6,0,Math.PI*2);x.fill();
+  x.fillStyle="gray";
+  x.fillRect(300,0,300,200);
+  requestAnimationF
